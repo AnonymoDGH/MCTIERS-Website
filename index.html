@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>/workspaces/codespaces-blank/CSS
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,41 +30,46 @@
 
         <section class="table">
             <section class="sortbar">
-                <select class="category-sorting">
-                    <option value="vanilla" class="select-option"> VANILLA RANKINGS </option>
-                    <option value="sword" class="select-option"> SWORD RANKINGS </option>
-                    <option value="pot" class="select-option"> POT RANKINGS </option>
-                    <option value="netherite-pot" class="select-option"> NETHERITE POT RANKINGS </option>
-                    <option value="uhc" class="select-option"> UHC RANKINGS </option>
-                    <option value="axe" class="select-option"> AXE RANKINGS </option>
-                    <option value="smp" class="select-option"> SMP RANKINGS </option>
-                    <option value="retired-players" class="select-option"> RETIRED PLAYERS RANKINGS </option>
-                    <option value="blacklisted-players" class="select-option"> BLACKLISTED PLAYERS RANKINGS </option>
-                    <!--<i class="ri-arrow-drop-down-fill ri-xl icon-vertical-centering"></i>-->
-                </select>
+                    <select class="category-sorting">
+                        <option value="vanilla" class="select-option"> VANILLA RANKINGS </option>
+                        <option value="sword" class="select-option"> SWORD RANKINGS </option>
+                        <option value="pot" class="select-option"> POT RANKINGS </option>
+                        <option value="netherite-pot" class="select-option"> NETHERITE POT RANKINGS </option>
+                        <option value="uhc" class="select-option"> UHC RANKINGS </option>
+                        <option value="axe" class="select-option"> AXE RANKINGS </option>
+                        <option value="smp" class="select-option"> SMP RANKINGS </option>
+                        <option value="retired-players" class="select-option"> RETIRED PLAYERS RANKINGS </option>
+                        <option value="blacklisted-players" class="select-option"> BLACKLISTED PLAYERS RANKINGS </option>
+                    </select>
 
                 <div class="separator first-sep"></div>
                 <select class="filter-sorting">
                     <option value="name" class="select-option">NAME</option>
                     <option value="date" class="select-option">DATE</option>
-                    <!--<i class="ri-arrow-drop-down-fill ri-xl icon-vertical-centering"></i>-->
                 </select>
                 <div class="separator second-sep"></div>
                 <div class="info-sortbar">INFO</div>
             </section>
             <section class="list-names">
-                <div class="list-name">TIER 1</div>
-                <div class="list-name">TIER 2</div>
-                <div class="list-name">TIER 3</div>
-                <div class="list-name">TIER 4</div>
-                <div class="list-name">TIER 5</div>
+                <div class="list-name non-responsive">TIER 1</div>
+                <div class="list-name non-responsive">TIER 2</div>
+                <div class="list-name non-responsive">TIER 3</div>
+                <div class="list-name non-responsive">TIER 4</div>
+                <div class="list-name non-responsive">TIER 5</div>
             </section>
+            <select class="name-dropdown">
+                <option value="tier-1" class="tier-option">TIER 1</option>
+                <option value="tier-2" class="tier-option">TIER 2</option>
+                <option value="tier-3" class="tier-option">TIER 3</option>
+                <option value="tier-4" class="tier-option">TIER 4</option>
+                <option value="tier-5" class="tier-option">TIER 5</option>
+            </select>
             <section class="player-lists">
-                <ul class="player-list"></ul>
-                <ul class="player-list"></ul>
-                <ul class="player-list"></ul>
-                <ul class="player-list"></ul>
-                <ul class="player-list"></ul>
+                <ul class="player-list responsive-column" class="responsive-column"></ul>
+                <ul class="player-list non-responsive"></ul>
+                <ul class="player-list non-responsive"></ul>
+                <ul class="player-list non-responsive"></ul>
+                <ul class="player-list non-responsive"></ul>
             </section>
         </section>
     </div>

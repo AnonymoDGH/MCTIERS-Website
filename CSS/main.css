@@ -32,7 +32,7 @@
 }
 
 .title {
-    font-size: 2em;
+    font-size: 2.6vw;
 }
 
 .nav-elements li {
@@ -67,6 +67,7 @@
 li div span {
     width: fit-content;
     height: fit-content;
+    font-size: 1.2vw;
 }
 
 /*-------------------------------------------------*/
@@ -100,7 +101,7 @@ li div span {
     left: 29.5%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 1.8em;
+    font-size: 2.4vw;
     font-weight: 800;
     text-align: center;
     width: fit-content;
@@ -108,13 +109,9 @@ li div span {
     border: none;
 }
 
-.icon-vertical-centering {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: fit-content;
+.category-sorting:focus {
+    outline: none;
 }
-
 
 .filter-sorting {
     position: absolute;
@@ -122,7 +119,7 @@ li div span {
     left: 69.5%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 1.8em;
+    font-size: 2.4vw;
     font-weight: 800;
     text-align: center;
     width: fit-content;
@@ -130,9 +127,13 @@ li div span {
     border: none;
 }
 
+.filter-sorting:focus {
+    outline: none;
+}
+
 .select-option {
     color: #111;
-    font-size: 0.8em;
+    font-size: 1vw;
     font-weight: 700;
 }
 
@@ -142,7 +143,7 @@ li div span {
     left: 90%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 1.8em;
+    font-size: 2.4vw;
     font-weight: 800;
     text-align: center;
     width: fit-content;
@@ -191,8 +192,12 @@ li div span {
     color: white;
     font-family: "Poppins", sans-serif;
     font-weight: 800;
-    font-size: 2em;
+    font-size: 2.4vw;
     text-align: center;
+}
+
+.name-dropdown {
+    display: none;
 }
 
 /*--------------------------------------------------*/
@@ -219,4 +224,91 @@ li div span {
     border-radius: 10px;
     margin: 0;
     padding: 0;
+}
+
+/*--------------------------------------------------*/
+
+@media screen and (max-width: 950px) {
+    * {
+        box-sizing: border-box;
+        width: 100vw;
+    }
+
+    .navbar {
+        height: 50px;
+    }
+
+    .nav-elements {
+        padding: 5px;
+        height: 50px;
+    }
+
+    .nav-button {
+        padding: 10px 10px;
+    }
+
+    .nav-button {
+        width: fit-content;
+        height: fit-content;
+    }
+
+    body div header ul li div span {
+        display: none;
+    }
+
+    /*-------------------------------------------------*/
+
+    .table {
+        top: 10px;
+        left: 10px;
+        width: calc(100vw - 20px);
+        height: calc(100% - 70px);
+    }
+
+    .sortbar {
+        width: calc(100vw - 20px);
+        height: 9%;
+    }
+
+    .category-sorting {
+        left: 50%;
+    }
+
+    .first-sep, .filter-sorting, .second-sep, .info-sortbar {
+        display: none;
+    }
+
+    .name-dropdown {
+        display: block;
+        position: absolute;
+        top: 13.4%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 6%;
+        width: fit-content;
+        height: fit-content;
+        color: white;
+        font-size: 2.4vw;
+        font-weight: 800;
+        text-align: center;
+        width: fit-content;
+        background: none;
+        border: none;
+    }
+
+    .name-dropdown:focus {
+        outline: none;
+    }
+
+    .non-responsive {
+        display: none;
+    }
+
+    .responsive-column {
+        position: absolute;
+        left: -10px;
+        top: 6.6%;
+        width: calc(100vw - 40px);
+        height: calc(100vh  - 25.4% - 80px);
+    }
 }
