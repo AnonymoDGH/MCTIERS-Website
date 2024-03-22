@@ -1,77 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/main.css" />
-    <title>MC Tiers</title>
+    <title>ImPhan Rankings</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div class="content">
-        <header class="navbar">
-            <ul class="nav-elements">
-                <li>
-                    <div class="nav-button">
-                        <i class="ri-search-line"></i>
-                        <span>SEARCH</span>
-                    </div>
-                </li>
-                <li class="title">MCTIERS.COM</li>
-                <li>
-                    <div class="nav-button">
-                        <i class="ri-account-circle-fill"></i>
-                        <span>LOG IN</span>
-                    </div>
-                </li>
-            </ul>
-        </header>
-
-        <section class="table">
-            <section class="sortbar">
-                    <select class="category-sorting">
-                        <option value="vanilla" class="select-option"> VANILLA RANKINGS </option>
-                        <option value="sword" class="select-option"> SWORD RANKINGS </option>
-                        <option value="pot" class="select-option"> POT RANKINGS </option>
-                        <option value="netherite-pot" class="select-option"> NETHERITE POT RANKINGS </option>
-                        <option value="uhc" class="select-option"> UHC RANKINGS </option>
-                        <option value="axe" class="select-option"> AXE RANKINGS </option>
-                        <option value="smp" class="select-option"> SMP RANKINGS </option>
-                        <option value="retired-players" class="select-option"> RETIRED PLAYERS RANKINGS </option>
-                        <option value="blacklisted-players" class="select-option"> BLACKLISTED PLAYERS RANKINGS </option>
-                    </select>
-
-                <div class="separator first-sep"></div>
-                <select class="filter-sorting">
-                    <option value="name" class="select-option">NAME</option>
-                    <option value="date" class="select-option">DATE</option>
-                </select>
-                <div class="separator second-sep"></div>
-                <div class="info-sortbar">INFO</div>
-            </section>
-            <section class="list-names">
-                <div class="list-name non-responsive">TIER 1</div>
-                <div class="list-name non-responsive">TIER 2</div>
-                <div class="list-name non-responsive">TIER 3</div>
-                <div class="list-name non-responsive">TIER 4</div>
-                <div class="list-name non-responsive">TIER 5</div>
-            </section>
-            <select class="name-dropdown">
-                <option value="tier-1" class="tier-option">TIER 1</option>
-                <option value="tier-2" class="tier-option">TIER 2</option>
-                <option value="tier-3" class="tier-option">TIER 3</option>
-                <option value="tier-4" class="tier-option">TIER 4</option>
-                <option value="tier-5" class="tier-option">TIER 5</option>
-            </select>
-            <section class="player-lists">
-                <ul class="player-list responsive-column" class="responsive-column"></ul>
-                <ul class="player-list non-responsive"></ul>
-                <ul class="player-list non-responsive"></ul>
-                <ul class="player-list non-responsive"></ul>
-                <ul class="player-list non-responsive"></ul>
-            </section>
+    <header>
+        <h1>PhanHub Rankings</h1>
+    </header>
+    <main>
+        <section class="rankings">
+            <h2>Top 5 Jugadores</h2>
+            <table id="rankingTable">
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Nombre</th>
+                        <th>Elo</th>
+                        <th>Perfil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </section>
-    </div>
+    </main>
+    <script>
+        function loadRankings() {
+            fetch('rankingData.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('rankingTable').getElementsByTagName('tbody')[0];
+                    let tableHtml = '';
+                    data.forEach((player, index) => {
+                        tableHtml += `<tr>
+                            <td>${index + 1}</td>
+                            <td>${player.name}</td>
+                            <td>${player.elo}</td>
+                            <td><img src="profile/${player.profileImage}" width="50" height="50"></td>
+                </tr>`;
+                    });
+                    tableBody.innerHTML = tableHtml;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Cargar rankings cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', loadRankings);
+
+        // Función de ejemplo para actualizar la información
+        function updateRanking(playerId, newElo) {
+            fetch('rankingData.json')
+                .then(response => response.json())
+                .then(data => {
+                    data[playerId].elo = newElo;
+                    const tableBody = document.getElementById('rankingTable').getElementsByTagName('tbody')[0];
+                    let tableHtml = '';
+                    data.forEach((player, index) => {
+                        tableHtml += `<tr>
+                            <td>${index + 1}</td>
+                            <td>${player.name}</td>
+                            <td>${player.elo}</td>
+                            <td><img src="profile/${player.profileImage}" width="50" height="50"></td>
+                          </tr>`;
+                    });
+                    tableBody.innerHTML = tableHtml;
+                    // Guardar los datos actualizados en el archivo JSON
+                    saveRankings(data);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Ejemplo de uso de la función de actualización: actualizar el Elo del jugador 1
+        updateRanking(0, 1250);
+        
+    </script>
+    <script src="index.js"></script>
 </body>
 </html>
