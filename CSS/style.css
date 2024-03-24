@@ -1,37 +1,54 @@
-/* Basic styles */
-* {
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+/* Global styles */
+*,
+html,
+body,
+content {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  color: #333;
+  color: #4a148c; /* Dark Purple */
 }
 
 /* Header styles */
 header {
-  background-color: #f2f2f2;
+  background-color: #7851a9; /* Medium Purple */
   color: #fff;
   text-align: center;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 header h1 {
   font-size: 24px;
-  margin: 0;
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: fadeInUp 1s ease-in-out; /* New animation name and properties */
 }
 
-/* Main content styles */
-main {
-  padding: 40px 20px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly off-screen (upward) */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End in original position */
+  }
 }
 
-/* Rankings section styles */
-.rankings {
-  margin: 20px auto;
-  width: 80%;
+/* Responsive layout for main content and sections */
+
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -39,37 +56,55 @@ main {
 .rankings h2 {
   margin: 10px;
   text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.rankings table {
-  width: 100%;
-  border-collapse: collapse;
-}
 
-.rankings table th,
-.rankings table td {
-  padding: 10px;
+.ranking-table td {
+  padding: 5px;
   text-align: center;
   border: 1px solid #ddd;
-}
+    border-radius: 4px;
+  }
 
-.rankings table th {
+
+.ranking-table th {
   background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
 }
 
-.rankings table tr:nth-child(even) {
-  background-color: #f7f7f7;
+/* Improved card layout for rankings (responsive) */
+.rankings {
+  display: flex; /* Allow flexbox for responsive row/column behavior */
+  flex-direction: column; /* Stack elements vertically by default */
+  align-items: center; /* Center content horizontally within card */
+  justify-content: center; /* Center content vertically within card */
+  width: calc(100% - 20px); /* Responsive width based on parent container */
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.rankinwgs span {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Media queries for additional responsive adjustments (optional) */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens here,
+     e.g., change flex direction for cards on mobile */
+  .ranings {
+    flex-direction: row; /* Lay cards horizontally on mobile */
+  }
 }
 
 /* Filters section styles */
-.filtros {
-  margin: 20px auto;
-  width: 80%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 20px;
-}
-
 .filtros h2 {
   margin: 10px;
   text-align: center;
@@ -102,94 +137,3 @@ main {
   cursor: pointer;
 }
 
-/* New styles for improved ranking */
-
-/* Updated styles for card layout */
-.card {
-  width: 250px;
-  height: 150px;
-  margin: 10px;
-  padding: 15px;
-  text-align: center;
-  background-color: #ddd;
-  border-radius: 4px;
-}
-
-.card span {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.ranking-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9em;
-}
-
-.ranking-table th,
-.ranking-table td {
-  padding: 5px;
-  text-align: center;
-  border: 1px solid #ddd;
-}
-
-.ranking-table th {
-  background-color: #f2f2f2;
-}
-
-/* Updated color scheme with purple shades */
-
-body {
-  color: #4a148c;
-  /* Dark Purple */
-}
-
-header {
-  background-color: #7851a9;
-  /* Medium Purple */
-  color: #fff;
-}
-
-header h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.filtros,
-.rankings {
-  border: 1px solid #7851a9;
-  /* Medium Purple */
-}
-
-.card {
-  background-color: #7851a9;
-  /* Medium Purple */
-  color: #fff;
-}
-
-.ranking-table th {
-  background-color: #6a3790;
-  /* Violet */
-}
-
-.ranking-table tr:nth-child(even) {
-  background-color: #8e79bd;
-  /* Slate Blue */
-}
-
-.filtros button {
-  padding: 10px 20px;
-  margin: 10px;
-  border: 1px solid #6a3790;
-  /* Violet */
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: #6a3790;
-  /* Violet */
-  color: #fff;
-}
-
-.filtros button:hover {
-  background-color: #4a148c;
-  /* Dark Purple */
-}
